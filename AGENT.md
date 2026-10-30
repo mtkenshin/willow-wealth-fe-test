@@ -25,3 +25,6 @@ Whenever you create, modify, or complete a code-related task, you MUST:
    - Any missteps or initial mistakes you made and how they were corrected.
    - What was kept vs. rejected.
 Perform these updates in the exact same turn as your code changes without requiring a separate prompt.
+
+## Prompts
+All prompts used need to be saved under docs/prompts

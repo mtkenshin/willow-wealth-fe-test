@@ -1,6 +1,6 @@
 # Implementation Plan
 
-- [ ] Project scaffolding (Vite + TS + SCSS)
+- [x] Project scaffolding (Vite + TS + SCSS)
 - [ ] Data models & types (`src/types/onboarding.ts`)
 - [ ] Central state & navigation context (`OnboardingContext.tsx`)
 - [ ] Common layout shell (TopNav, back button, step progress `x/x`)

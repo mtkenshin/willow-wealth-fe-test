@@ -18,3 +18,8 @@
 ## Ownership Summary
 - **AI Generated (~70%):** JSX structure, initial TypeScript interfaces, mock API latency boilerplate.
 - **Hand-Edited / Directed (~30%):** Step-routing logic, multi-select handling, `x / x` progress calculation, state retention.
+
+## SCSS Support
+- **Modified:** Added `sass` as a development dependency, switched the application stylesheet imports to `src/App.scss` and `src/index.scss`, and updated `README.md` and `PLAN.md`.
+- **Missteps / Corrections:** None.
+- **Kept vs. Rejected:** Kept Vite's built-in SCSS pipeline; no additional Vite plugin or CSS Modules configuration was needed.
