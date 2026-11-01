@@ -8,6 +8,7 @@ import type { InvestorProfileQuestionStep } from './screens/InvestorProfileQuest
 import { InterstitialScreen } from './screens/InterstitialScreen'
 import { RegulatoryQuestions } from './screens/RegulatoryQuestions'
 import type { RegulatoryQuestionStep } from './screens/RegulatoryQuestions'
+import { ReadyStep } from './screens/ReadyStep'
 
 function isInvestorProfileQuestionStep(step: number): step is InvestorProfileQuestionStep {
   return step === 2 || step === 3 || step === 4
@@ -85,6 +86,8 @@ function App() {
           }
           onContinue={() => dispatch({ type: 'NEXT_STEP' })}
         />
+      ) : state.step === 9 ? (
+        <ReadyStep state={state} dispatch={dispatch} />
       ) : (
         <section aria-labelledby="investor-questions-title">
           <h1 className="app__title" id="investor-questions-title">

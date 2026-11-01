@@ -54,5 +54,10 @@ Kept global CSS custom properties and a reusable centered shell/card. Kept progr
 
 ## Dropdown Questions B1–B3
 - **Files touched/created:** `src/screens/RegulatoryQuestions.tsx`, `src/screens/RegulatoryQuestions.module.scss`, `src/App.tsx`, `PLAN.md`, `AI_WORKFLOW.md`, `docs/prompts/06-dropdown-questions.md`.
-- **Verification performed:** Pending lint and Vite build validation.
+- **Verification performed:** Lint and Vite build passed during final onboarding-flow validation.
 - **Accept vs. Reject decisions:** Kept regulatory answers in the existing reducer, used native accessible country/status selects, and disabled Continue until every required selection is valid; rejected third-party form dependencies and automatic advancement.
+
+## Final Investment Path & Submission
+- **Files touched/created:** `src/screens/ReadyStep.tsx`, `src/screens/ReadyStep.module.scss`, `src/api/onboardingApi.ts`, `src/App.tsx`, `AI_WORKFLOW.md`.
+- **Verification performed:** `npm run lint`, `npx vite build`, targeted TypeScript checking, and `git diff --check` passed. Browser verification covered the final-step route, simulated submission failure, disabled cards during submission, retry, and successful confirmation.
+- **Accept vs. Reject decisions:** Kept path selection and loading/error state in the existing onboarding reducer, used the mock API's 1.2-second delay and 90/10 success/failure simulation, and kept success confirmation local to the final screen; rejected adding a server or third-party dependency.
