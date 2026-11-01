@@ -1,13 +1,14 @@
 # Implementation Plan
 
-- [x] Project scaffolding (Vite + TS + SCSS)
-- [ ] Data models & types (`src/types/onboarding.ts`)
-- [ ] Central state & navigation context (`OnboardingContext.tsx`)
-- [ ] Common layout shell (TopNav, back button, step progress `x/x`)
-- [ ] Step 0: Account creation form with validation & password toggle
-- [ ] Step A: Interstitial welcome screen (`<FirstName>`)
-- [ ] Steps A1–A3: Household income, Net worth, Qualified purchaser
-- [ ] Step B: Interstitial regulatory info
-- [ ] Steps B1–B3: Citizenship, Tax residence, Employment status
-- [ ] Step Success: Path picker & POST `/api/onboarding` submission
-- [ ] Final testing & README setup
+- [x] Project Scaffolding (Vite + React + TS + Tailwind or SCSS)
+- [ ] 1. Central Types & State Setup (useReducer or useState)
+- [ ] 2. Layout Shell & Typography System (Global styles, variables, top nav bar, step progress counter x/x)
+- [ ] 3. Interstitial Component & Styling (Reusable InterstitialLayout)
+    - [ ] Illustration / Graphic placeholder (flex container with clean border/background or SVG)
+    - [ ] Dynamic headline rendering (Welcome to Willow Wealth, <FirstName>)
+    - [ ] Body copy & prominent [ Continue ] action button
+- [ ] 4. Step 0: Account Creation Form (Validation, password toggle, terms checkbox)
+- [ ] 5. Option-Card Screens [A1–A3] (Income, Net Worth, Qualified Purchaser + SEC definition hint tooltip)
+- [ ] 6. Dropdown & Array Screens [B1–B3] (Citizenship dynamic list, Tax Residence, Employment Status)
+- [ ] 7. Final Success Path Picker & Mock API (POST /api/onboarding with loading/error states)
+- [ ] 8. Responsive polish & Final testing
