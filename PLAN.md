@@ -7,7 +7,7 @@
     - [x] Illustration / Graphic placeholder (flex container with clean border/background or SVG)
     - [x] Dynamic headline rendering (Welcome to Willow Wealth, <FirstName>)
     - [x] Body copy & prominent [ Continue ] action button
-- [ ] 4. Step 0: Account Creation Form (Validation, password toggle, terms checkbox)
+- [x] 4. Step 0: Account Creation Form (Validation, password toggle, terms checkbox)
 - [ ] 5. Option-Card Screens [A1–A3] (Income, Net Worth, Qualified Purchaser + SEC definition hint tooltip)
 - [ ] 6. Dropdown & Array Screens [B1–B3] (Citizenship dynamic list, Tax Residence, Employment Status)
 - [ ] 7. Final Success Path Picker & Mock API (POST /api/onboarding with loading/error states)
