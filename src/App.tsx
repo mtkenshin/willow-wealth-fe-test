@@ -6,19 +6,35 @@ import { AccountStep } from './screens/AccountStep'
 import { InvestorProfileQuestions } from './screens/InvestorProfileQuestions'
 import type { InvestorProfileQuestionStep } from './screens/InvestorProfileQuestions'
 import { InterstitialScreen } from './screens/InterstitialScreen'
+import { RegulatoryQuestions } from './screens/RegulatoryQuestions'
+import type { RegulatoryQuestionStep } from './screens/RegulatoryQuestions'
 
 function isInvestorProfileQuestionStep(step: number): step is InvestorProfileQuestionStep {
   return step === 2 || step === 3 || step === 4
 }
 
+function isRegulatoryQuestionStep(step: number): step is RegulatoryQuestionStep {
+  return step === 6 || step === 7 || step === 8
+}
+
 function App() {
   const { state, dispatch } = useOnboardingState()
   const questionStep = isInvestorProfileQuestionStep(state.step) ? state.step : undefined
-  const currentQuestionStep = questionStep === undefined ? undefined : questionStep - 1
+  const regulatoryQuestionStep = isRegulatoryQuestionStep(state.step)
+    ? state.step
+    : undefined
+  const currentQuestionStep =
+    questionStep !== undefined
+      ? questionStep - 1
+      : regulatoryQuestionStep !== undefined
+        ? regulatoryQuestionStep - 2
+        : undefined
 
   function goBack() {
     if (state.step === 2) {
       dispatch({ type: 'SET_STEP', payload: 0 })
+    } else if (state.step === 6) {
+      dispatch({ type: 'SET_STEP', payload: 4 })
     } else {
       dispatch({ type: 'PREV_STEP' })
     }
@@ -27,8 +43,8 @@ function App() {
   return (
     <LayoutShell
       currentQuestionStep={currentQuestionStep}
-      onBack={questionStep === undefined ? undefined : goBack}
-      showBack={questionStep !== undefined}
+      onBack={currentQuestionStep === undefined ? undefined : goBack}
+      showBack={currentQuestionStep !== undefined}
     >
       {state.step === 0 ? (
         <AccountStep
@@ -47,6 +63,27 @@ function App() {
           step={questionStep}
           profile={state.investorProfile}
           dispatch={dispatch}
+        />
+      ) : state.step === 5 ? (
+        <InterstitialScreen
+          title="A few more questions to complete your account set-up"
+          description="As the last step in identity verification, FINRA, our regulator, requires us to ask about citizenship, employment and potential conflicts of interest."
+          onContinue={() => dispatch({ type: 'SET_STEP', payload: 6 })}
+        />
+      ) : regulatoryQuestionStep !== undefined ? (
+        <RegulatoryQuestions
+          step={regulatoryQuestionStep}
+          regulatory={state.regulatory}
+          onCitizenshipChange={(citizenship) =>
+            dispatch({ type: 'UPDATE_REGULATORY', payload: { citizenship } })
+          }
+          onTaxResidenceChange={(taxResidence) =>
+            dispatch({ type: 'UPDATE_REGULATORY', payload: { taxResidence } })
+          }
+          onEmploymentStatusChange={(employmentStatus) =>
+            dispatch({ type: 'UPDATE_REGULATORY', payload: { employmentStatus } })
+          }
+          onContinue={() => dispatch({ type: 'NEXT_STEP' })}
         />
       ) : (
         <section aria-labelledby="investor-questions-title">

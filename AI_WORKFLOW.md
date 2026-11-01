@@ -51,3 +51,8 @@ Kept global CSS custom properties and a reusable centered shell/card. Kept progr
 - **Files touched/created:** `src/components/OptionCardStep.tsx`, `src/components/OptionCardStep.module.scss`, `src/screens/QualifiedPurchaserInfo.module.scss`, `src/App.tsx`, `PLAN.md`, `AI_WORKFLOW.md`, `docs/prompts/05-option-card-questions.md`.
 - **Verification performed:** `npm run lint`, targeted `tsc --noEmit` for the changed React screens, `npx vite build`, and `git diff --check` passed. `npm run build` remains blocked by the installed TypeScript version, which does not support the existing `erasableSyntaxOnly` option and cannot parse the installed Vite React plugin declarations.
 - **Accept vs. Reject decisions:** Kept profile answers in the existing reducer, advanced immediately on card selection, and used a native inline `<details>` disclosure for the SEC definition; rejected a Continue button and a blocking modal.
+
+## Dropdown Questions B1–B3
+- **Files touched/created:** `src/screens/RegulatoryQuestions.tsx`, `src/screens/RegulatoryQuestions.module.scss`, `src/App.tsx`, `PLAN.md`, `AI_WORKFLOW.md`, `docs/prompts/06-dropdown-questions.md`.
+- **Verification performed:** Pending lint and Vite build validation.
+- **Accept vs. Reject decisions:** Kept regulatory answers in the existing reducer, used native accessible country/status selects, and disabled Continue until every required selection is valid; rejected third-party form dependencies and automatic advancement.
