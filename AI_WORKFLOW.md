@@ -38,6 +38,7 @@
 [useOboardingState-review.md](docs/reviews/useOnboardingState-review.md)
 [interstitialScreen-review.md](docs/reviews/interstitialScreen-review.md)
 [accountStep-review.md](docs/reviews/accountStep-review.md)
+[screensA1toA3.md](docs/reviews/screensA1toA3.md)
 
 Kept global CSS custom properties and a reusable centered shell/card. Kept progress restricted to question steps and made back routing a parent-provided callback so the caller can bypass interstitials. Rejected inferring interstitial/final navigation from a numeric step because the shell contract does not identify those screens.
 
@@ -45,3 +46,8 @@ Kept global CSS custom properties and a reusable centered shell/card. Kept progr
 - **Files touched/created:** `src/screens/AccountStep.tsx`, `src/screens/AccountStep.module.scss`, `src/App.tsx`, `PLAN.md`, `AI_WORKFLOW.md`, `docs/prompts/04-account-creation-screen.md`.
 - **Verification performed:** `npm run lint`, `npx vite build`, a targeted `npx tsc` check of the changed React files, browser verification of required-field errors and successful submission to Interstitial A, and `git diff --check`. `npm run build` is blocked by the installed TypeScript version: it does not support the existing `erasableSyntaxOnly` option and fails to parse the installed Vite React plugin declarations.
 - **Accept vs. Reject decisions:** Kept account state in the existing reducer and form edits local until valid submission; used inline accessible errors and a disabled non-navigating Log in control; rejected adding third-party form or icon dependencies.
+
+## Option-Card Questions A1–A3
+- **Files touched/created:** `src/components/OptionCardStep.tsx`, `src/components/OptionCardStep.module.scss`, `src/screens/QualifiedPurchaserInfo.module.scss`, `src/App.tsx`, `PLAN.md`, `AI_WORKFLOW.md`, `docs/prompts/05-option-card-questions.md`.
+- **Verification performed:** `npm run lint`, targeted `tsc --noEmit` for the changed React screens, `npx vite build`, and `git diff --check` passed. `npm run build` remains blocked by the installed TypeScript version, which does not support the existing `erasableSyntaxOnly` option and cannot parse the installed Vite React plugin declarations.
+- **Accept vs. Reject decisions:** Kept profile answers in the existing reducer, advanced immediately on card selection, and used a native inline `<details>` disclosure for the SEC definition; rejected a Continue button and a blocking modal.
