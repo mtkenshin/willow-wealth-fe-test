@@ -23,3 +23,7 @@
 - **Modified:** Added `sass` as a development dependency, switched the application stylesheet imports to `src/App.scss` and `src/index.scss`, and updated `README.md` and `PLAN.md`.
 - **Missteps / Corrections:** None.
 - **Kept vs. Rejected:** Kept Vite's built-in SCSS pipeline; no additional Vite plugin or CSS Modules configuration was needed.
+
+
+## Accept/Reject Reviews
+[useOboardingState-review.md](docs/reviews/useOnboardingState-review.md)
