@@ -73,6 +73,7 @@
 .addButton,
 .removeButton {
   width: fit-content;
+  min-height: 2.75rem;
   padding: var(--space-2) 0;
   border: 0;
   background: transparent;

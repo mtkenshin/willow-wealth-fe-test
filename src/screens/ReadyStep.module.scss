@@ -130,6 +130,7 @@
 
 .retryButton {
   flex: 0 0 auto;
+  min-height: 2.75rem;
   padding: var(--space-2) var(--space-4);
   border: 1px solid currentColor;
   border-radius: var(--radius-control);

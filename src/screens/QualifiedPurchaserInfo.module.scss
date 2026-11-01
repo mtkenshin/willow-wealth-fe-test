@@ -4,7 +4,10 @@
 }
 
 .summary {
+  display: flex;
   width: fit-content;
+  min-height: 2.75rem;
+  align-items: center;
   color: var(--color-primary);
   font-weight: 600;
   cursor: pointer;

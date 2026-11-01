@@ -15,7 +15,7 @@ export interface AccountStepProps {
   onContinue: () => void
 }
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const emailPattern = /^[^\s@.]+(?:\.[^\s@.]+)*@(?:[^\s@.]+\.)+[^\s@.]+$/
 
 export function AccountStep({ account, dispatch, onContinue }: AccountStepProps) {
   const [form, setForm] = useState<AccountFields>(() => ({ ...account }))
@@ -87,6 +87,16 @@ export function AccountStep({ account, dispatch, onContinue }: AccountStepProps)
       </header>
 
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        {Object.keys(errors).length > 0 && (
+          <div className={styles.errorSummary} role="alert">
+            <p>Please correct the following before continuing:</p>
+            <ul>
+              {Object.entries(errors).map(([field, message]) => (
+                <li key={field}>{message}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className={styles.field}>
           <label className={styles.label} htmlFor="account-first-name">
             First name
