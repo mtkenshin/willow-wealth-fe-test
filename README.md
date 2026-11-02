@@ -2,6 +2,11 @@
 
 A React and TypeScript onboarding flow built with Vite. It includes account creation, investor profile and regulatory questions, and a final investment-path selection.
 
+## Tools used
+
+- OpenAI Codex
+- Visual Studio Code
+
 ## Requirements
 
 - **Node.js:** 20.19 or later, or 22.12 or later (required by Vite 8). Node.js 22.12+ is recommended.
@@ -34,6 +39,13 @@ Open the local URL printed by Vite in your browser (normally `http://localhost:5
 | `npm run lint` | Run ESLint across the project. |
 
 There is currently no test script, test runner, or committed TSX test file. The unit-test scenarios in the component guides are recommendations for future automated tests; they are not tests that can currently be run from this repository.
+
+## Project planning and workflow
+
+- [Project plan](PLAN.md)
+- [Task list](TASK.md)
+- [AI workflow](AI_WORKFLOW.md)
+- [Agent guidance](AGENT.md)
 
 ## Component and TSX guides
 
