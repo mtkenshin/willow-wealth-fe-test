@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import backArrow from '../../assets/back-arrow.svg'
 import companyLogo from '../../assets/company-logo.webp'
 import './LayoutShell.scss'
 
@@ -56,19 +57,11 @@ export function LayoutShell({
                 aria-label="Go back"
                 onClick={onBack}
               >
-                <svg
+                <img
                   aria-hidden="true"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M19 12H5" />
-                  <path d="m12 19-7-7 7-7" />
-                </svg>
+                  src={backArrow}
+                  alt=""
+                />
               </button>
             )}
           </div>
