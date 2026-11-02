@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from 'react'
+import { useReducer } from 'react'
 import type { Dispatch } from 'react'
 
 export interface OnboardingAccount {
