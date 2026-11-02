@@ -12,3 +12,4 @@
 - [x] 6. Dropdown & Array Screens [B1–B3] (Citizenship dynamic list, Tax Residence, Employment Status)
 - [x] 7. Final Success Path Picker & Mock API (POST /api/onboarding with loading/error states)
 - [x] 8. Responsive polish & Final testing
+- [x] 9. Directional onboarding step transitions with reduced-motion support

@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 import './LayoutShell.scss'
 
+type TransitionDirection = 'forward' | 'backward'
+
 export interface LayoutShellProps {
+  currentStep: number
   currentQuestionStep?: number
   totalQuestionSteps?: number
   onBack?: () => void
@@ -10,12 +14,25 @@ export interface LayoutShellProps {
 }
 
 export function LayoutShell({
+  currentStep,
   currentQuestionStep,
   totalQuestionSteps = 6,
   onBack,
   showBack = currentQuestionStep !== undefined,
   children,
 }: LayoutShellProps) {
+  const [transition, setTransition] = useState<{
+    step: number
+    direction: TransitionDirection | undefined
+  }>({ step: currentStep, direction: undefined })
+
+  if (transition.step !== currentStep) {
+    setTransition({
+      step: currentStep,
+      direction: currentStep > transition.step ? 'forward' : 'backward',
+    })
+  }
+
   const showProgress =
     currentQuestionStep !== undefined &&
     Number.isInteger(currentQuestionStep) &&
@@ -53,7 +70,19 @@ export function LayoutShell({
       </header>
 
       <main className="layout-shell__main">
-        <div className="layout-shell__card">{children}</div>
+        <div
+          key={currentStep}
+          className={[
+            'layout-shell__card',
+            transition.direction
+              ? `layout-shell__card--enter-${transition.direction}`
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {children}
+        </div>
       </main>
     </div>
   )

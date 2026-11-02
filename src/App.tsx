@@ -43,6 +43,7 @@ function App() {
 
   return (
     <LayoutShell
+      currentStep={state.step}
       currentQuestionStep={currentQuestionStep}
       onBack={currentQuestionStep === undefined ? undefined : goBack}
       showBack={currentQuestionStep !== undefined}
