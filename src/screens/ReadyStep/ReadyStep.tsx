@@ -50,7 +50,12 @@ export function ReadyStep({ state, dispatch }: ReadyStepProps) {
     dispatch({ type: 'SUBMIT_START' })
 
     try {
-      const response = await submitOnboarding({ ...state, selectedPath: path })
+      const submission = { ...state, selectedPath: path }
+      console.log('Onboarding submission:', {
+        ...submission,
+        account: { ...submission.account, password: '[REDACTED]' },
+      })
+      const response = await submitOnboarding(submission)
       dispatch({ type: 'SUBMIT_SUCCESS' })
       setConfirmation(response)
     } catch (error) {
