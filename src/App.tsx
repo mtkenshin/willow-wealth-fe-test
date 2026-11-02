@@ -1,14 +1,14 @@
 
 import './App.scss'
-import { LayoutShell } from './components/LayoutShell'
+import { LayoutShell } from './components/LayoutShell/LayoutShell'
 import { useOnboardingState } from './hooks/useOnboardingState'
-import { AccountStep } from './screens/AccountStep'
+import { AccountStep } from './screens/AccountStep/AccountStep'
 import { InvestorProfileQuestions } from './screens/InvestorProfileQuestions'
 import type { InvestorProfileQuestionStep } from './screens/InvestorProfileQuestions'
-import { InterstitialScreen } from './screens/InterstitialScreen'
-import { RegulatoryQuestions } from './screens/RegulatoryQuestions'
-import type { RegulatoryQuestionStep } from './screens/RegulatoryQuestions'
-import { ReadyStep } from './screens/ReadyStep'
+import { InterstitialScreen } from './screens/Interstitial/InterstitialScreen'
+import { RegulatoryQuestions } from './screens/RegulatoryQuestions/RegulatoryQuestions'
+import type { RegulatoryQuestionStep } from './screens/RegulatoryQuestions/RegulatoryQuestions'
+import { ReadyStep } from './screens/ReadyStep/ReadyStep'
 
 function isInvestorProfileQuestionStep(step: number): step is InvestorProfileQuestionStep {
   return step === 2 || step === 3 || step === 4

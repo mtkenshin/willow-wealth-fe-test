@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import type { ReactNode } from 'react'
 import styles from './RegulatoryQuestions.module.scss'
-import type { OnboardingRegulatory } from '../hooks/useOnboardingState'
+import type { OnboardingRegulatory } from '../../hooks/useOnboardingState'
 
 export type RegulatoryQuestionStep = 6 | 7 | 8
 

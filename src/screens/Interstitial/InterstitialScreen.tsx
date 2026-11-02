@@ -1,6 +1,6 @@
 import { useId, type ReactNode } from 'react'
 import styles from './InterstitialScreen.module.scss'
-import { InterstitialIllustration } from './InterstitialIllustration';
+import { InterstitialIllustration } from '../Interstitial/InterstitialIllustration';
 
 export interface InterstitialScreenProps {
   title: string | ReactNode

@@ -59,18 +59,24 @@
 
 .input {
   width: 100%;
-  min-height: 3rem;
+  min-height: 3.25rem;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-control);
-  background: var(--color-surface);
+  background: rgb(226 243 233 / 78%);
   color: var(--color-text);
+  transition: all 0.25s ease;
 }
 
 .input:focus-visible,
 .checkbox:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+.input:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgb(149 224 186 / 35%);
 }
 
 .input[aria-invalid='true'] {
@@ -157,10 +163,7 @@
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    transform 150ms ease;
+  transition: all 0.25s ease;
 }
 
 .continueButton:hover {
@@ -201,6 +204,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .continueButton {
+    transition: none;
+  }
+
+  .input {
     transition: none;
   }
 }

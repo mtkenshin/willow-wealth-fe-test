@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import companyLogo from '../../assets/company-logo.webp'
 import './LayoutShell.scss'
 
 type TransitionDirection = 'forward' | 'backward'
@@ -58,7 +59,10 @@ export function LayoutShell({
               </button>
             )}
           </div>
-          <span className="layout-shell__brand">WillowWealth</span>
+          <div className="layout-shell__brand-lockup">
+            <img src={companyLogo} alt="" className="layout-shell__logo" />
+            <span className="layout-shell__brand">WillowWealth</span>
+          </div>
           <div className="layout-shell__progress-slot">
             {showProgress && (
               <span className="layout-shell__progress" aria-label={`Step ${currentQuestionStep} of ${totalQuestionSteps}`}>

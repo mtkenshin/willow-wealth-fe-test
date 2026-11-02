@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react'
 import type { Dispatch } from 'react'
-import { submitOnboarding } from '../api/onboardingApi'
-import type { OnboardingSubmissionResponse } from '../api/onboardingApi'
+import { submitOnboarding } from '../../api/onboardingApi'
+import type { OnboardingSubmissionResponse } from '../../api/onboardingApi'
 import type {
   OnboardingAction,
   OnboardingState,
-} from '../hooks/useOnboardingState'
+} from '../../hooks/useOnboardingState'
 import styles from './ReadyStep.module.scss'
 
 const investmentPaths = [

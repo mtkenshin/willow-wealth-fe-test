@@ -1,5 +1,5 @@
 import { useState, type Dispatch, type FormEvent } from 'react'
-import type { OnboardingAccount, OnboardingAction } from '../hooks/useOnboardingState'
+import type { OnboardingAccount, OnboardingAction } from '../../hooks/useOnboardingState'
 import styles from './AccountStep.module.scss'
 
 type AccountFields = Pick<

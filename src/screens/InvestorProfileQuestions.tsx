@@ -1,5 +1,5 @@
 import type { Dispatch } from 'react'
-import { OptionCardStep } from '../components/OptionCardStep'
+import { OptionCardStep } from '../components/OptionCardStep/OptionCardStep'
 import type {
   InvestorProfile,
   OnboardingAction,

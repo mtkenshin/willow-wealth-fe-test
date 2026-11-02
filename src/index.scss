@@ -1,22 +1,26 @@
 :root {
   font-family:
     Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #172433;
-  background: #f5f7fa;
+  color: #0c2b29;
+  background: #0c2b29;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --color-primary: #173b57;
-  --color-primary-hover: #102f47;
-  --color-primary-subtle: #edf3f7;
-  --color-background: #f5f7fa;
+  --color-primary: #0c2b29;
+  --color-primary-hover: #163c38;
+  --color-primary-subtle: #e6f4ec;
+  --color-accent: #95e0ba;
+  --color-container: #163c38;
+  --color-background: #0c2b29;
   --color-surface: #fff;
-  --color-text: #172433;
-  --color-text-secondary: #657487;
-  --color-border: #dce3e9;
-  --color-focus: #78a8c9;
+  --color-glass-surface: rgb(255 255 255 / 94%);
+  --color-text: #0c2b29;
+  --color-text-secondary: #5a6b68;
+  --color-border: rgb(12 43 41 / 8%);
+  --color-glass-border: rgb(255 255 255 / 60%);
+  --color-focus: #95e0ba;
 
   --font-size-small: 0.875rem;
   --font-size-body: 1rem;
@@ -35,8 +39,11 @@
   --space-16: 4rem;
 
   --radius-control: 0.625rem;
-  --radius-card: 1rem;
-  --shadow-card: 0 12px 36px rgb(23 36 51 / 6%);
+  --radius-card: 1.5rem;
+  --shadow-card:
+    0 20px 40px rgb(12 43 41 / 6%),
+    0 1px 3px rgb(0 0 0 / 4%);
+  --glass-blur: blur(16px) saturate(180%);
   --container-form: 43rem;
   --container-wide: 72rem;
 }
@@ -55,7 +62,10 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--color-text);
-  background: var(--color-background);
+  background:
+    radial-gradient(ellipse at 12% 18%, rgb(149 224 186 / 12%), transparent 38rem),
+    radial-gradient(ellipse at 88% 82%, rgb(149 224 186 / 9%), transparent 36rem),
+    linear-gradient(135deg, #0c2b29 0%, #163c38 54%, #0c2b29 100%);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
 }
@@ -79,4 +89,11 @@ h2,
 h3 {
   color: var(--color-text);
   line-height: var(--line-height-heading);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .layout-shell__card,
+  .layout-shell__header {
+    backdrop-filter: var(--glass-blur);
+  }
 }
