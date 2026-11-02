@@ -1,0 +1,200 @@
+.layout-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.layout-shell::before,
+.layout-shell::after {
+  position: absolute;
+  z-index: -1;
+  width: 24rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-accent);
+  content: '';
+  filter: blur(100px);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.layout-shell::before {
+  top: 8rem;
+  left: -12rem;
+}
+
+.layout-shell::after {
+  right: -12rem;
+  bottom: 0;
+  opacity: 0.12;
+}
+
+.layout-shell__header {
+  border-bottom: 1px solid rgb(12 43 41 / 8%);
+  background: rgba(255, 255, 255, 0.96)
+}
+
+.layout-shell__header-inner {
+  display: grid;
+  grid-template-columns: minmax(2.75rem, 1fr) auto minmax(2.75rem, 1fr);
+  align-items: center;
+  width: min(calc(100% - var(--space-6) - var(--space-6)), var(--container-wide));
+  min-height: 4.5rem;
+  margin-inline: auto;
+}
+
+.layout-shell__back-slot {
+  justify-self: start;
+}
+
+.layout-shell__back-button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgb(12 43 41 / 14%);
+  border-radius: var(--radius-control);
+  background: rgb(255 255 255 / 58%);
+  color: var(--color-primary);
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.layout-shell__back-button img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.layout-shell__back-button:hover {
+  border-color: var(--color-accent);
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.layout-shell__back-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.layout-shell__brand-lockup {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: var(--space-2);
+}
+
+.layout-shell__brand {
+  color: var(--color-primary);
+  font-size: var(--font-size-brand);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.layout-shell__progress-slot {
+  justify-self: end;
+}
+
+.layout-shell__progress {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.layout-shell__main {
+  display: flex;
+  justify-content: center;
+  width: min(calc(100% - var(--space-6) - var(--space-6)), var(--container-form));
+  margin-inline: auto;
+  padding-block: clamp(var(--space-8), 8vh, var(--space-16));
+}
+
+.layout-shell__card {
+  width: 100%;
+  padding: clamp(var(--space-6), 6vw, var(--space-12));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-card);
+  background: rgb(255 255 255 / 96%);
+  box-shadow:
+    var(--shadow-card),
+    inset 0 1px 0 rgb(255 255 255 / 78%);
+}
+
+.layout-shell__card--enter-forward {
+  animation: layout-shell-step-enter-from-right 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.layout-shell__card--enter-backward {
+  animation: layout-shell-step-enter-from-left 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.layout-shell__logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.375rem;
+  object-fit: contain;
+}
+
+@keyframes layout-shell-step-enter-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes layout-shell-step-enter-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-shell__card--enter-forward,
+  .layout-shell__card--enter-backward {
+    animation: layout-shell-step-fade 1ms linear both;
+  }
+
+  @keyframes layout-shell-step-fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-shell__header-inner {
+    min-height: 4rem;
+  }
+
+  .layout-shell__main {
+    padding-block: var(--space-6);
+  }
+
+  .layout-shell__card {
+    padding: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-shell__back-button {
+    transition: none;
+  }
+}

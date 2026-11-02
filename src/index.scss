@@ -1,0 +1,99 @@
+:root {
+  font-family:
+    Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #0c2b29;
+  background: #0c2b29;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #0c2b29;
+  --color-primary-hover: #163c38;
+  --color-primary-subtle: #e6f4ec;
+  --color-accent: #95e0ba;
+  --color-container: #163c38;
+  --color-background: #0c2b29;
+  --color-surface: #fff;
+  --color-glass-surface: rgb(255 255 255 / 94%);
+  --color-text: #0c2b29;
+  --color-text-secondary: #5a6b68;
+  --color-border: rgb(12 43 41 / 8%);
+  --color-glass-border: rgb(255 255 255 / 60%);
+  --color-focus: #95e0ba;
+
+  --font-size-small: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-brand: 1.25rem;
+  --font-size-heading: clamp(1.75rem, 4vw, 2.25rem);
+  --line-height-body: 1.6;
+  --line-height-heading: 1.2;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-control: 0.625rem;
+  --radius-card: 1.5rem;
+  --shadow-card:
+    0 20px 40px rgb(12 43 41 / 6%),
+    0 1px 3px rgb(0 0 0 / 4%);
+  --glass-blur: blur(16px) saturate(180%);
+  --container-form: 43rem;
+  --container-wide: 72rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse at 12% 18%, rgb(149 224 186 / 12%), transparent 38rem),
+    radial-gradient(ellipse at 88% 82%, rgb(149 224 186 / 9%), transparent 36rem),
+    linear-gradient(135deg, #0c2b29 0%, #163c38 54%, #0c2b29 100%);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  line-height: var(--line-height-heading);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .layout-shell__card,
+  .layout-shell__header {
+    backdrop-filter: var(--glass-blur);
+  }
+}

@@ -1,0 +1,132 @@
+.interstitial {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(var(--space-8), 6vw, var(--space-16));
+}
+
+.illustration {
+  display: grid;
+  min-height: 19rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 42%);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(ellipse at 50% 42%, rgb(149 224 186 / 20%), transparent 58%),
+    linear-gradient(145deg, rgb(12 43 41 / 94%), rgb(22 60 56 / 96%));
+  box-shadow:
+    0 16px 32px rgb(12 43 41 / 12%),
+    inset 0 1px 0 rgb(255 255 255 / 14%);
+}
+
+.illustrationGraphic {
+  width: min(100%, 15rem);
+  height: auto;
+}
+
+.illustrationHalo {
+  fill: rgb(149 224 186 / 22%);
+}
+
+.illustrationLine {
+  stroke: var(--color-accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.illustrationLeaf {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.illustrationBase {
+  fill: #6bb997;
+}
+
+.illustrationAccent {
+  fill: #c3f1d7;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.description {
+  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.continueButton {
+  display: inline-flex;
+  min-width: 10rem;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-control);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.continueButton:hover {
+  border-color: var(--color-primary-hover);
+  background: var(--color-primary-hover);
+}
+
+.continueButton:active {
+  transform: translateY(1px);
+}
+
+.continueButton:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .interstitial {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+
+  .illustration {
+    min-height: 14rem;
+  }
+
+  .illustrationGraphic {
+    width: min(100%, 12rem);
+  }
+
+  .content {
+    align-items: stretch;
+  }
+
+  .continueButton {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .continueButton {
+    transition: none;
+  }
+}
