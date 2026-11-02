@@ -41,6 +41,7 @@ export function LayoutShell({
     totalQuestionSteps > 0 &&
     currentQuestionStep >= 1 &&
     currentQuestionStep <= Math.min(totalQuestionSteps, 6)
+    
   const renderBackButton = showBack && onBack !== undefined
 
   return (
@@ -55,13 +56,25 @@ export function LayoutShell({
                 aria-label="Go back"
                 onClick={onBack}
               >
-                &lt;
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M19 12H5" />
+                  <path d="m12 19-7-7 7-7" />
+                </svg>
               </button>
             )}
           </div>
           <div className="layout-shell__brand-lockup">
             <img src={companyLogo} alt="" className="layout-shell__logo" />
-            <span className="layout-shell__brand">WillowWealth</span>
+            <span className="layout-shell__brand">Willow Wealth</span>
           </div>
           <div className="layout-shell__progress-slot">
             {showProgress && (

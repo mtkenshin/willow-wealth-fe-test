@@ -82,7 +82,17 @@ export function ReadyStep({ state, dispatch }: ReadyStepProps) {
       <header className={styles.header}>
         <h1 className={styles.title} id={titleId}>
           <span className={styles.checkmark} aria-hidden="true">
-            ✓
+            <svg
+              focusable="false"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m5 12 4 4L19 6" />
+            </svg>
           </span>{' '}
           You're ready to invest on Willow Wealth
         </h1>

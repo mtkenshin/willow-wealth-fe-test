@@ -93,11 +93,13 @@
 
 .visibilityButton {
   position: absolute;
+  display: grid;
   top: 50%;
   right: var(--space-2);
-  min-width: 3.75rem;
-  min-height: 2.75rem;
-  padding: var(--space-2);
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  padding: 0;
   transform: translateY(-50%);
   border: 0;
   border-radius: var(--radius-control);
@@ -106,6 +108,11 @@
   font-size: var(--font-size-small);
   font-weight: 600;
   cursor: pointer;
+}
+
+.visibilityButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .visibilityButton:hover {

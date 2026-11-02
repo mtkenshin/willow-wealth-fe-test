@@ -24,8 +24,12 @@
   border-radius: 50%;
   background: #e8f5ed;
   color: #267343;
-  font-size: 1.25rem;
   vertical-align: 0.1em;
+}
+
+.checkmark svg {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .description {

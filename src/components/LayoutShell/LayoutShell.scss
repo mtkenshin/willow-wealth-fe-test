@@ -59,10 +59,13 @@
   background: rgb(255 255 255 / 58%);
   color: var(--color-primary);
   font: inherit;
-  font-size: 1.5rem;
-  line-height: 1;
   cursor: pointer;
   transition: all 0.25s ease;
+}
+
+.layout-shell__back-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .layout-shell__back-button:hover {
