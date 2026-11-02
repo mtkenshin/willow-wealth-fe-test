@@ -11,5 +11,7 @@
 - [x] 5. Option-Card Screens [A1–A3] (Income, Net Worth, Qualified Purchaser + SEC definition hint tooltip)
 - [x] 6. Dropdown & Array Screens [B1–B3] (Citizenship dynamic list, Tax Residence, Employment Status)
 - [x] 7. Final Success Path Picker & Mock API (POST /api/onboarding with loading/error states)
+    - [x] Submit full path-selection payload with deterministic success/failure responses and dismissible toast notifications
+    - [x] Send the payload with Fetch to the local mock API endpoint
 - [x] 8. Responsive polish & Final testing
 - [x] 9. Directional onboarding step transitions with reduced-motion support

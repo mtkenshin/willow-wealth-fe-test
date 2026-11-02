@@ -2,6 +2,7 @@ import { useId } from 'react'
 import type { ReactNode } from 'react'
 import styles from './RegulatoryQuestions.module.scss'
 import type { OnboardingRegulatory } from '../../hooks/useOnboardingState'
+import trashIcon from '../../assets/trash.svg'
 
 export type RegulatoryQuestionStep = 6 | 7 | 8
 
@@ -156,7 +157,7 @@ export function RegulatoryQuestions({
                     onClick={() => removeCitizenship(index)}
                     aria-label={`Remove additional country ${index}`}
                   >
-                    Remove
+                    <img src={trashIcon} alt="" aria-hidden="true" />
                   </button>
                 )}
               </div>

@@ -82,3 +82,28 @@ Kept global CSS custom properties and a reusable centered shell/card. Kept progr
 - **Files touched/created:** `src/components/LayoutShell.tsx`, `src/components/LayoutShell.scss`, `src/App.tsx`, `PLAN.md`, `docs/prompts/08-onboarding-step-transitions.md`, `AI_WORKFLOW.md`.
 - **Verification performed:** `npm run lint`, `npx vite build`, and `git diff --check` passed. `npm run build` remains blocked by the installed TypeScript/compiler configuration (`erasableSyntaxOnly` unsupported and Vite plugin declaration parse errors).
 - **Accept vs. Reject decisions:** Kept transitions in the shared layout shell and inferred direction from the current step index, covering forward, backward, and bypass navigation without duplicating animation logic in screen components. Used lightweight CSS keyframes instead of adding Framer Motion; honored reduced-motion preferences with an opacity-only, near-instant animation.
+
+## Final Screen Illustration
+- **Files touched/created:** `src/screens/ReadyStep/ReadyStep.tsx`, `src/screens/ReadyStep/ReadyStep.module.scss`, `src/screens/Interstitial/InterstitialIllustration.tsx`, `docs/guides/ReadyStep-Guide.md`, `docs/guides/InterstitialIllustration-Guide.md`, `docs/prompts/10-final-screen-illustration.md`, `PLAN.md`, `AI_WORKFLOW.md`.
+- **Verification performed:** Targeted ESLint on both changed TSX files, `npx vite build`, and `git diff --check` passed. `npm run lint` is blocked by the existing unused `useCallback` import in `src/hooks/useOnboardingState.ts`; `npm run build` is blocked by the installed TypeScript version, which does not support the configured `erasableSyntaxOnly` option and cannot parse the installed Vite React plugin declarations. Browser verification could not be completed because the browser session was unavailable.
+- **Accept vs. Reject decisions:** Reuse the existing decorative illustration and extend it with an optional class for the final-screen layout; keep the illustration beside a single-column stack of investment options on desktop and stack it above the content on mobile. Rejected adding a new image asset or dependency.
+
+## Path Selection Submission and Toasts
+- **Files touched/created:** `src/screens/ReadyStep/ReadyStep.tsx`, `src/screens/ReadyStep/ReadyStep.module.scss`, `src/api/onboardingApi.ts`, `docs/guides/ReadyStep-Guide.md`, `docs/prompts/11-path-selection-submissions-and-toasts.md`, `PLAN.md`, `AI_WORKFLOW.md`.
+- **Verification performed:** Focused ESLint on `ReadyStep.tsx` and `onboardingApi.ts`, `npx vite build`, and `git diff --check` passed. `npx tsc --noEmit -p tsconfig.app.json` is blocked by the existing TypeScript configuration (`tsBuildInfoFile` without incremental/composite and unsupported `erasableSyntaxOnly`). An integrated-browser walkthrough could not proceed past the account-consent checkbox, so the final-screen interaction was not browser-verified.
+- **Accept vs. Reject decisions:** Kept the API local and deterministic, with a 700ms HTTP 200 response for self-directed selection and HTTP 400 failure for managed selection; sent a full structured onboarding payload, and rendered accessible, dismissible five-second toasts in a portal so top-right positioning remains viewport-fixed. Preserved the existing loading guard, error banner, retry action, and success confirmation; rejected using a real network request or adding a notification dependency.
+
+## Fetch API Submission
+- **Files touched/created:** `src/api/onboardingApi.ts`, `vite.config.ts`, `docs/guides/ReadyStep-Guide.md`, `AI_WORKFLOW.md`.
+- **Verification performed:** Focused ESLint on `srrec/api/onboardingApi.ts` and `vite.config.ts`, `npx vite build`, and `git diff --check` passed. POST requests to the running Vite mock endpoint returned HTTP 200 with a success JSON response for `self_directed`, and HTTP 400 with a JSON error for `managed`.
+- **Accept vs. Reject decisions:** Use browser Fetch to POST JSON to `/api/onboarding`, with a local Vite development/preview middleware providing the existing deterministic 700ms mock results; rejected simulating the request solely with a timer in the client helper.
+
+## Toast Close Icon
+- **Files touched/created:** `src/assets/close.svg`, `src/screens/ReadyStep/ReadyStep.tsx`, `src/screens/ReadyStep/ReadyStep.module.scss`, `docs/guides/ReadyStep-Guide.md`, `AI_WORKFLOW.md`.
+- **Verification performed:** Focused ESLint on `ReadyStep.tsx`, `npx vite build`, and `git diff --check` passed.
+- **Accept vs. Reject decisions:** Added a dedicated SVG asset in `src/assets/` and used it as decorative iconography inside the existing accessible toast dismiss button; retained the button's screen-reader label and behavior.
+
+## Citizenship Remove Icon
+- **Files touched/created:** `src/assets/trash.svg`, `src/screens/RegulatoryQuestions/RegulatoryQuestions.tsx`, `src/screens/RegulatoryQuestions/RegulatoryQuestions.module.scss`, `AI_WORKFLOW.md`.
+- **Verification performed:** Focused ESLint on `RegulatoryQuestions.tsx`, `npx vite build`, and `git diff --check` passed.
+- **Accept vs. Reject decisions:** Replaced the visible Remove label with a trash SVG stored in `src/assets/`; kept the existing button action and its per-country accessible name, with a 44px icon-button target and focus styling.

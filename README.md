@@ -1,79 +1,53 @@
-# React + TypeScript + Vite
+# Willow Wealth Onboarding
 
-## SCSS
+A React and TypeScript onboarding flow built with Vite. It includes account creation, investor profile and regulatory questions, and a final investment-path selection.
 
-SCSS is supported through the `sass` development dependency and Vite's built-in stylesheet handling. Import `.scss` files from React components or the application entry point, as shown by `src/App.scss` and `src/index.scss`. Component styles can use Sass features such as variables, nesting, and mixins.
+## Requirements
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Node.js:** 20.19 or later, or 22.12 or later (required by Vite 8). Node.js 22.12+ is recommended.
+- **npm:** 10 or later is recommended. The repository includes an npm lockfile so dependencies can be installed reproducibly.
 
-Currently, two official plugins are available:
+Check your installed versions:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+node --version
+npm --version
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Install and run
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+From the repository root, install the locked dependencies and start the Vite development server:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm ci
+npm run dev
 ```
+
+Open the local URL printed by Vite in your browser (normally `http://localhost:5173`).
+
+## Other commands
+
+| Command | Description |
+| --- | --- |
+| `npm run build` | Type-check the project and create a production build in `dist/`. |
+| `npm run preview` | Serve the production build locally; run `npm run build` first. |
+| `npm run lint` | Run ESLint across the project. |
+
+There is currently no test script, test runner, or committed TSX test file. The unit-test scenarios in the component guides are recommendations for future automated tests; they are not tests that can currently be run from this repository.
+
+## Component and TSX guides
+
+Each TSX file has a guide describing its purpose, props and events, usage, recommended unit-test scenarios, and room for improvement.
+
+| TSX file | Guide |
+| --- | --- |
+| `src/App.tsx` | [App guide](docs/guides/App-Guide.md) |
+| `src/main.tsx` | [main guide](docs/guides/main-Guide.md) |
+| `src/components/LayoutShell/LayoutShell.tsx` | [LayoutShell guide](docs/guides/LayoutShell-Guide.md) |
+| `src/components/OptionCardStep/OptionCardStep.tsx` | [OptionCardStep guide](docs/guides/OptionCardStep-Guide.md) |
+| `src/screens/AccountStep/AccountStep.tsx` | [AccountStep guide](docs/guides/AccountStep-Guide.md) |
+| `src/screens/Interstitial/InterstitialScreen.tsx` | [InterstitialScreen guide](docs/guides/InterstitialScreen-Guide.md) |
+| `src/screens/Interstitial/InterstitialIllustration.tsx` | [InterstitialIllustration guide](docs/guides/InterstitialIllustration-Guide.md) |
+| `src/screens/InvestorProfileQuestions.tsx` | [InvestorProfileQuestions guide](docs/guides/InvestorProfileQuestions-Guide.md) |
+| `src/screens/RegulatoryQuestions/RegulatoryQuestions.tsx` | [RegulatoryQuestions guide](docs/guides/RegulatoryQuestions-Guide.md) |
+| `src/screens/ReadyStep/ReadyStep.tsx` | [ReadyStep guide](docs/guides/ReadyStep-Guide.md) |
